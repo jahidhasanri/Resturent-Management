@@ -41,7 +41,10 @@ const Navbar = () => {
         </div>
 
         {/* Search & Profile (Visible in all devices) */}
-        <div className="text-right flex-none gap-2">
+        <div className="text-right flex-none gap-2 flex">
+            <div>
+                <NavLink to='/login' className='btn'>login</NavLink>
+            </div>
           {/* Profile Dropdown */}
           <div className="dropdown dropdown-end">
             <div
