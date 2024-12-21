@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 
@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <div>
-      
+      <ToastContainer />
       <div className="hero bg-base-200 min-h-screen ">
         <div className="hero-content flex-col">
           <div className="text-center">
