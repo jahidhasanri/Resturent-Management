@@ -82,7 +82,7 @@ const Register = () => {
 
   return (
     <div>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       <div className="hero bg-base-200 min-h-screen ">
         <div className="hero-content flex-col">
           <div className="text-center">

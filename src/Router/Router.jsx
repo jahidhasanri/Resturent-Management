@@ -4,12 +4,17 @@ import AllFoods from "../Pages/AllFoods";
 import Gallery from "../Pages/Gallery";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import Home from "../Pages/Home";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element:<MainLayout></MainLayout>,
       children:[
+        {
+            path:'/',
+            element:<Home></Home>
+        },
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,

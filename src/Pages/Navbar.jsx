@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { IoMenu } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast, ToastContainer } from "react-toastify";
+import './header.css'
 
 const Navbar = () => {
   // State to toggle the menu visibility on small devices
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user,handleSingOut, setUser}=useContext(AuthContext)
+ 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    handleSingOut()
+      .then(() => {
+        setUser(null);
+        toast.success("Logout successful!");
+        setTimeout(() => navigate("/login"), 2000);
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(`Logout failed: ${error.message}`);
+      });
+  };
+
 
   // Function to toggle menu
   const toggleMenu = () => {
@@ -13,6 +32,7 @@ const Navbar = () => {
 
   return (
     <div className="bg-base-300 px-10 w-full">
+        <ToastContainer></ToastContainer>
       <div className="flex justify-between items-center">
         {/* Navbar Title */}
         <div>
@@ -43,19 +63,26 @@ const Navbar = () => {
         {/* Search & Profile (Visible in all devices) */}
         <div className="text-right flex-none gap-2 flex">
             <div>
-                <NavLink to='/login' className='btn'>login</NavLink>
+                {
+                    user?
+                    <NavLink onClick={handleLogout} to='/login' className='btn'>logout</NavLink>
+                    :
+                    <NavLink to='/login' className='btn'>login</NavLink>
+                }
             </div>
           {/* Profile Dropdown */}
-          <div className="dropdown dropdown-end">
+          {
+            user? 
+            <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
               className="btn btn-ghost btn-circle avatar"
             >
-              <div className="w-10 rounded-full">
+              <div className="w-14  rounded-full">
                 <img
                   alt="Profile Avatar"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  src={user?.photoURL}
                 />
               </div>
             </div>
@@ -65,18 +92,21 @@ const Navbar = () => {
             >
               <li>
                 <a className="justify-between">
-                  Profile
+                My Foods
                  
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <a>Add food</a>
               </li>
               <li>
-                <a>Logout</a>
+                <a>My Orders</a>
               </li>
             </ul>
           </div>
+          :
+          ''
+          }
         </div>
       </div>
 
