@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-base-300 pl-2 pr-2">
+    <div className="bg-base-300 px-10 w-full">
       <div className="flex justify-between items-center">
         {/* Navbar Title */}
         <div>
@@ -28,11 +28,8 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold mr-6" to="/allfoods">
           All Foods
           </NavLink>
-          <NavLink className="text-xl font-semibold mr-6" to="/addequipment">
-            Add Equipment
-          </NavLink>
-          <NavLink className="text-xl font-semibold" to="/myequipment">
-            My Equipment List
+          <NavLink className="text-xl font-semibold mr-6" to="/gallery">
+            Gallery
           </NavLink>
         </div>
 

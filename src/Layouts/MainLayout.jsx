@@ -5,10 +5,12 @@ import Footer from '../Pages/Footer';
 
 const MainLayout = () => {
     return (
-        <div className='w-full lg:w-11/12 mx-auto'>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+        <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <div className="flex-grow">
+                <Outlet />
+            </div>
+            <Footer />
         </div>
     );
 };
