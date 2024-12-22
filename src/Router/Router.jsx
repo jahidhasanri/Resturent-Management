@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import AddFoodPage from "../Pages/AddFoodPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
         },
         {
             path:'/addfood',
-            element:<AddFoodPage></AddFoodPage>
+            element:<PrivateRoute><AddFoodPage></AddFoodPage></PrivateRoute>
         },
         {
             path:'/gallery',
