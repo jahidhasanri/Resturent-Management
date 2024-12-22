@@ -7,6 +7,7 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import AddFoodPage from "../Pages/AddFoodPage";
 import PrivateRoute from "./PrivateRoute";
+import SingleFood from "../Pages/SingleFood";
 
 const router = createBrowserRouter([
     {
@@ -20,10 +21,16 @@ const router = createBrowserRouter([
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,
+            loader:()=> fetch('http://localhost:5000/jobs')
         },
         {
             path:'/addfood',
             element:<PrivateRoute><AddFoodPage></AddFoodPage></PrivateRoute>
+        },
+        {
+            path:'/singlefood/:id',
+            element:<SingleFood></SingleFood>,
+            loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
             path:'/gallery',
