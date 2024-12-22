@@ -5,6 +5,7 @@ import Gallery from "../Pages/Gallery";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import Home from "../Pages/Home";
+import AddFoodPage from "../Pages/AddFoodPage";
 
 const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,
+        },
+        {
+            path:'/addfood',
+            element:<AddFoodPage></AddFoodPage>
         },
         {
             path:'/gallery',

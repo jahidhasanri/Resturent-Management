@@ -97,7 +97,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a>Add food</a>
+                <NavLink to='/addfood'>Add food</NavLink>
               </li>
               <li>
                 <a>My Orders</a>
