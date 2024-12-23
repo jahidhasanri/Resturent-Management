@@ -116,14 +116,11 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold block mb-4" to="/">
             Home
           </NavLink>
-          <NavLink className="text-xl font-semibold block mb-4" to="/allequipment">
-            All Sports Equipment
+          <NavLink className="text-xl font-semibold block mb-4" to="/allfoods">
+           All Food
           </NavLink>
-          <NavLink className="text-xl font-semibold block mb-4" to="/addequipment">
-            Add Equipment
-          </NavLink>
-          <NavLink className="text-xl font-semibold block" to="/myequipment">
-            My Equipment List
+          <NavLink className="text-xl font-semibold block mb-4" to="/gallery">
+          Gallery
           </NavLink>
         </div>
       )}
