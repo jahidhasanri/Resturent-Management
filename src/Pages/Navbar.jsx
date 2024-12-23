@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import './header.css'
@@ -91,13 +91,13 @@ const Navbar = () => {
               className="menu menu-sm  dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a className="justify-between">
+                <Link to='/myfood' className="justify-between">
                 My Foods
                  
-                </a>
+                </Link>
               </li>
               <li>
-                <NavLink to='/addfood'>Add food</NavLink>
+                <Link to='/addfood'>Add food</Link>
               </li>
               <li>
                 <a>My Orders</a>

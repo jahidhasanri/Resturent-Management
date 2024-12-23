@@ -9,6 +9,8 @@ import AddFoodPage from "../Pages/AddFoodPage";
 import PrivateRoute from "./PrivateRoute";
 import SingleFood from "../Pages/SingleFood";
 import FoodPurchase from "../Pages/FoodPurchase";
+import MyFood from "../Pages/MyFood";
+import Update from "../Pages/Update";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
         {
             path:'/addfood',
             element:<PrivateRoute><AddFoodPage></AddFoodPage></PrivateRoute>
+        },
+        {
+            path:'/myfood',
+            element:<PrivateRoute><MyFood></MyFood></PrivateRoute>
         },
         {
             path:'/singlefood/:id',
@@ -49,7 +55,12 @@ const router = createBrowserRouter([
         {
             path:'/register',
             element:<Register></Register>
-        }
+        },
+        {
+            path:'/update/:id',
+            element:<PrivateRoute><Update></Update></PrivateRoute>,
+            loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+        },
       ]
     },
   ]);

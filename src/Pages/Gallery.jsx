@@ -55,11 +55,21 @@ const Gallery = () => {
 
       {/* Lightbox */}
       <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={images.map((image) => ({ src: image.src }))}
-        index={currentImage}
+  open={open}
+  close={() => setOpen(false)}
+  slides={images.map((image) => ({ src: image.src }))}
+  index={currentImage}
+  render={{
+    slide: ({ slide }) => (
+      <img
+        src={slide.src}
+        alt="Gallery Item"
+        className="custom-lightbox-image rounded-lg  h-[600px] shadow-lg"
       />
+    ),
+  }}
+/>
+
     </div>
   );
 };
