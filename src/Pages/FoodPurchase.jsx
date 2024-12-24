@@ -7,8 +7,10 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const FoodPurchase = () => {
     const food = useLoaderData();
+    console.log(food._id);
     const { user } = useContext(AuthContext);
     const [purchaseDetails, setPurchaseDetails] = useState({
+        food_Id:food._id,
         foodName: food.food,
         price: food.price,
         quantity: 1,

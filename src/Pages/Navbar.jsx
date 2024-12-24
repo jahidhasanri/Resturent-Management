@@ -100,7 +100,7 @@ const Navbar = () => {
                 <Link to='/addfood'>Add food</Link>
               </li>
               <li>
-                <a>My Orders</a>
+                <Link to='/myorders'>My Orders</Link>
               </li>
             </ul>
           </div>
