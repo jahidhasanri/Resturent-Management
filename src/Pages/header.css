@@ -10,3 +10,22 @@
     text-align: center;
     margin-top: 20px;
   }
+  /* Light Theme */
+.light {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+  }
+  
+  /* Dark Theme */
+  .dark {
+    --bg-color: #1a1a2e;
+    --text-color: #ffffff;
+  }
+  
+  /* Global Styles */
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease-in-out;
+  }
+  

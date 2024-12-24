@@ -56,7 +56,7 @@ const FoodPurchase = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-6 bg-white">
+        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-10 mb-12 bg-white">
             <h1 className="text-2xl font-bold mb-4">Complete Your Purchase</h1>
             <form onSubmit={handlePurchase}>
                 <div className="mb-4">

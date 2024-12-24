@@ -25,7 +25,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className=" container mx-auto bg-gray-100">
+    <div className=" container mx-auto bg-gray-100 mt-5">
       {/* Page Title */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10">
         <h1 className="text-4xl font-bold">Gallery</h1>

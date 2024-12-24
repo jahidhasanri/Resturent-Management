@@ -12,10 +12,10 @@ const SingleFood = () => {
     };
 
     return (
-        <div className="lg:w-4/12 mx-auto p-6 mt-2">
+        <div className="lg:w-4/12 mx-auto p-6 mt-3">
             <div className="card bg-base-100 shadow-lg rounded-lg">
                 <figure>
-                    <img src={food.img} alt={food.food} className="h-[500px] w-[500px] object-cover rounded-t-lg" />
+                    <img src={food.img} alt={food.food} className="h-[400px] w-[400px] object-cover rounded-t-lg" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title text-2xl font-bold">{food.food}</h2>
