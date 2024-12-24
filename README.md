@@ -1,8 +1,76 @@
-# React + Vite
+# Restaurant Management Website 🍽️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Purpose
+This project is a full-stack Restaurant Management website aimed at enhancing the restaurant's online presence, improving customer interaction, and streamlining internal management processes. It is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) to ensure a modern, robust, and user-friendly experience.
 
-Currently, two official plugins are available:
+## Live URL
+[Live Site Link](#)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
+### Frontend Features
+1. **Responsive Design**: Fully responsive layout for mobile, tablet, and desktop devices.
+2. **Authentication System**:
+   - Login/Logout with email-password and Google/GitHub integration.
+   - Password validation: Requires an uppercase letter, a lowercase letter, and a minimum of 6 characters.
+   - Toast notifications for errors and successful actions.
+3. **Dynamic Pages**:
+   - **Home Page**: Includes a banner, top food section, and extra sections.
+   - **All Foods Page**: Searchable and paginated list of all food items.
+   - **Single Food Page**: Detailed view of each food item.
+   - **Food Purchase Page**: Form-based food ordering with validation and database integration.
+   - **Gallery Page**: Lightbox-style image gallery with animations and infinite scrolling.
+   - **Private Pages**:
+     - **My Foods**: User-specific list of added foods with update functionality.
+     - **Add Food**: Form to add new food items.
+     - **My Orders**: List of user-specific food orders with delete functionality.
+4. **Additional Features**:
+   - Theme toggling (light/dark mode).
+   - Profile dropdown with navigation to private routes.
+   - Spinner/loading animations during data fetch.
+
+### Backend Features
+1. **Secure API**:
+   - Firebase configuration keys and MongoDB credentials are stored in environment variables.
+   - JWT authentication for secure access to private routes.
+2. **Database Operations**:
+   - Server-side filtering and pagination for food items.
+   - CRUD operations for food items and orders.
+   - Validations to prevent purchasing unavailable or self-added items.
+3. **Error Handling**:
+   - Proper CORS setup and error codes (401, 403) for unauthorized access.
+
+## Technologies and Libraries Used
+### Frontend
+- **React.js**: UI development.
+- **React Router**: Route management.
+- **React Toastify**: Notifications.
+- **Tailwind CSS**: Styling.
+- **Framer Motion**: Animations.
+- **Yet Another React Lightbox**: Gallery lightbox functionality.
+
+### Backend
+- **Node.js**: Backend runtime.
+- **Express.js**: Backend framework.
+- **MongoDB**: Database.
+- **JWT**: Authentication.
+- **Moment.js**: Formatting dates and times.
+
+## Deployment
+- **Frontend**: Hosted on [Netlify/Surge](#).
+- **Backend**: Hosted on [Render/Heroku](#).
+- **Database**: MongoDB Atlas.
+
+## Commits
+- **Frontend**: At least 15 meaningful commits with descriptive messages.
+- **Backend**: At least 8 meaningful commits with descriptive messages.
+
+## Installation Guide
+### Prerequisites
+- Node.js
+- MongoDB
+- Firebase project
+
+### Steps to Run Locally
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
