@@ -35,7 +35,7 @@ const SingleFood = () => {
                         <span className="font-semibold">Description:</span> {food.description}
                     </p>
                     <p>
-                        <span className="font-semibold">Purchase Count:</span> {purchaseCount}
+                        <span className="font-semibold">Purchase Count:</span> {food.PurchaseCount ? food.PurchaseCount : '0' } {/* Show 0 if purchaseCount is 0, otherwise show the actual value */}
                     </p>
                     <button 
                         onClick={handlePurchase} 

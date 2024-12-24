@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -22,13 +22,13 @@ const Footer = () => {
           <h3 className="text-2xl font-semibold text-primary mb-4">Quick Links</h3>
           <ul className="text-lg text-gray-600">
             <li className="mb-2">
-              <NavLink to="/" className="hover:text-primary">Home</NavLink>
+              <Link to="/" className="hover:text-primary">Home</Link>
             </li>
             <li className="mb-2">
-              <NavLink to="/allfoods" className="hover:text-primary">All Food</NavLink>
+              <Link to="/allfoods" className="hover:text-primary">All Food</Link>
             </li>
             <li className="mb-2">
-              <NavLink to="/gallery" className="hover:text-primary">Gallery</NavLink>
+              <Link to="/gallery" className="hover:text-primary">Gallery</Link>
             </li>
           </ul>
         </div>
