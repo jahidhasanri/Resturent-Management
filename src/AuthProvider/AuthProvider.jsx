@@ -35,12 +35,13 @@ const AuthProvider = ({children}) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser?.email) {
                 setUser(currentUser);
-                axios.post('http://localhost:5000/jwt',{
+                axios.post('https://assignment-11-solution-server.vercel.app/jwt',{
                     email: currentUser?.email 
                 },
                 {
                     withCredentials: true
-                })
+                }
+               )
                     .then(res =>{
                          console.log(res.data)
                          setLoader(false);
@@ -48,7 +49,7 @@ const AuthProvider = ({children}) => {
                     .catch(err => console.error('Error generating token:', err));
             }
             else{
-                axios.post('http://localhost:5000/logout',{},{
+                axios.post('https://assignment-11-solution-server.vercel.app/logout',{
                     withCredentials: true
                 })
                 .then(res => {

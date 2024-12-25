@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="md:flex justify-between items-center">
         {/* Navbar Title */}
         <div className="flex md:gap-7 items-center">
-          <img className="w-28 h-28" src="/public/logo1.png" alt="Logo" />
+          <img className="w-28 h-28" src="/logo1.png" alt="Logo" />
           <button
             onClick={toggleTheme}
             className="btn btn-sm btn-primary"

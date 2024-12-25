@@ -12,7 +12,7 @@ const MyOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/purchase?email=${userEmail}`);
+        const response = await axios.get(`https://assignment-11-solution-server.vercel.app/purchase?email=${userEmail}`);
         setOrders(response.data);
       } catch (error) {
         // console.error(error);
@@ -24,7 +24,7 @@ const MyOrders = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/purchase/${id}`,{
+      const response = await axios.delete(`https://assignment-11-solution-server.vercel.app/purchase/${id}`,{
         withCredentials: true, // Include the cookies for authorization
       });
       if (response.data.deletedCount > 0) {

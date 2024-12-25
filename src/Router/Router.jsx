@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,
-            // loader:()=> fetch('http://localhost:5000/jobs')
+            // loader:()=> fetch('https://assignment-11-solution-server.vercel.app///jobs')
         },
         {
             path:'/addfood',
@@ -40,12 +40,12 @@ const router = createBrowserRouter([
         {
             path:'/singlefood/:id',
             element:<SingleFood></SingleFood>,
-            loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
         },
         {
             path:'/foodpurchase/:id',
             element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-            loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
         },
         {
             path:'myorders',
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         {
             path:'/update/:id',
             element:<PrivateRoute><Update></Update></PrivateRoute>,
-            loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
         },
       ]
     },

@@ -13,7 +13,7 @@ const TopFoodSec = () => {
 
     const fetchTopFoods = () => {
         axios
-            .get('http://localhost:5000/jobs') // Replace with your API endpoint
+            .get('https://assignment-11-solution-server.vercel.app/jobs') // Replace with your API endpoint
             .then(response => {
                 const allFoods = response.data;
 

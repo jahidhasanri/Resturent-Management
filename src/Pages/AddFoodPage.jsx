@@ -15,7 +15,7 @@ const AddFoodPage = () => {
     const allInfo = Object.fromEntries(info.entries());
 
     try {
-      const { data } = await axios.post('http://localhost:5000/jobs', allInfo);
+      const { data } = await axios.post('https://assignment-11-solution-server.vercel.app/jobs', allInfo);
       
       if (data) {
         toast.success('Food item added successfully'); // Toast on success

@@ -13,7 +13,10 @@ const AllFoods = () => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/jobs?search=${searchValue}`
+        `https://assignment-11-solution-server.vercel.app/jobs?search=${searchValue}`,
+        {
+          withCredentials: true
+        }
       );
       setFoods(data);
     } catch (error) {

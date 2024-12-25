@@ -43,7 +43,7 @@ const FoodPurchase = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post("http://localhost:5000/purchase", purchaseDetails);
+            const response = await axios.post("https://assignment-11-solution-server.vercel.app/purchase", purchaseDetails);
             if (response.data.insertedId) {
                 toast.success("Purchase successful!");
             } else {

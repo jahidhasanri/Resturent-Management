@@ -50,7 +50,7 @@ const Gallery = () => {
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white rounded-lg transition-opacity duration-300">
-              <h2 className="text-lg font-semibold">{user.displayName}</h2>
+              <h2 className="text-lg font-semibold">{user?user.displayName : image.name}</h2>
               <p className="text-sm">{image.desc}</p>
             </div>
           </div>

@@ -23,7 +23,7 @@ const Update = () => {
     };
 
     try {
-      const response = await axios.put(`http://localhost:5000/jobs/${data._id}`, updatedFood);
+      const response = await axios.put(`https://assignment-11-solution-server.vercel.app/jobs/${data._id}`, updatedFood);
 
       if (response.data.modifiedCount > 0) {
         toast.success('Food item updated successfully');
