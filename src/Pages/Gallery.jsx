@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { use } from "react";
 
 const Gallery = () => {
   const [open, setOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
+  const {user}=useContext(AuthContext)
+  console.log(user);
 
   const images = [
     { src: "https://i.ibb.co.com/JznnXDx/pizza-img.jpg", name: "User 1", desc: "Classic Italian pizza with fresh tomatoes, mozzarella cheese, basil le" },
@@ -46,7 +50,7 @@ const Gallery = () => {
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center text-white rounded-lg transition-opacity duration-300">
-              <h2 className="text-lg font-semibold">{image.name}</h2>
+              <h2 className="text-lg font-semibold">{user.displayName}</h2>
               <p className="text-sm">{image.desc}</p>
             </div>
           </div>

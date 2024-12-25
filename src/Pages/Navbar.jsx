@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { IoMenu } from "react-icons/io5";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
 import './header.css';
@@ -10,6 +10,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const { user, handleSingOut, setUser } = useContext(AuthContext);
+  const navigate= useNavigate();
 
   // Logout function
   const handleLogout = (e) => {

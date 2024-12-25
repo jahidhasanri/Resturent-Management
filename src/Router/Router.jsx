@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,
-            loader:()=> fetch('http://localhost:5000/jobs')
+            // loader:()=> fetch('http://localhost:5000/jobs')
         },
         {
             path:'/addfood',

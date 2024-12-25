@@ -32,7 +32,7 @@ const TopFoodSec = () => {
     };
 
     const handleDetails = (id) => {
-        navigate(`/food/${id}`); // Navigate to Single Food Page
+        navigate(`/singlefood/${id}`); // Navigate to Single Food Page
     };
 
     const handleSeeAll = () => {

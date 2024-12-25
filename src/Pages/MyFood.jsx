@@ -2,18 +2,20 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
+import UseAxiosSecure from '../Hoks/UseAxiosSecure';
 
 const MyFood = () => {
     const [foods, setFoods] = useState([]);
     const user = useContext(AuthContext);
     const users = user?.user?.email; // Extract the email of the logged-in user
     const navigate = useNavigate();
+    const axiosSecure = UseAxiosSecure();
 
     useEffect(() => {
         if (users) { // Only fetch if user email exists
             const fetchFoods = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:5000/myfoods?email=${users}`);
+                    const response = await axiosSecure.get(`/myfoods?email=${users}`);
                     setFoods(response.data); // Set fetched data to state
                 } catch (error) {
                     console.error("Error fetching foods:", error);

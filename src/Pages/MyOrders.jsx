@@ -15,7 +15,7 @@ const MyOrders = () => {
         const response = await axios.get(`http://localhost:5000/purchase?email=${userEmail}`);
         setOrders(response.data);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
         toast.error('Failed to fetch orders');
       }
     };
@@ -24,7 +24,9 @@ const MyOrders = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/purchase/${id}`);
+      const response = await axios.delete(`http://localhost:5000/purchase/${id}`,{
+        withCredentials: true, // Include the cookies for authorization
+      });
       if (response.data.deletedCount > 0) {
         toast.success('Order deleted successfully');
         setOrders(orders.filter((order) => order._id !== id)); // Remove the deleted order from the state

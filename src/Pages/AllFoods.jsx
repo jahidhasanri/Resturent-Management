@@ -1,20 +1,44 @@
-import { useLoaderData, Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState, useMemo } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import debounce from "lodash.debounce";
 
 const AllFoods = () => {
-  const foods = useLoaderData(); // Fetching all food data
+  const [foods, setFoods] = useState([]); // State for food data
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
-  const [filteredFoods, setFilteredFoods] = useState(foods); // State for filtered foods
+  const [loading, setLoading] = useState(false);
 
-  // Handle search
-  const handleSearch = (event) => {
-    const value = event.target.value.toLowerCase();
-    setSearchTerm(value);
-    const filtered = foods.filter((food) =>
-      food.food.toLowerCase().includes(value)
-    );
-    setFilteredFoods(filtered);
+  // Fetch all foods with search
+  const fetchFoods = async (searchValue) => {
+    setLoading(true);
+    try {
+      const { data } = await axios.get(
+        `http://localhost:5000/jobs?search=${searchValue}`
+      );
+      setFoods(data);
+    } catch (error) {
+      console.error("Error fetching foods:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  // Debounced function for search
+  const debouncedFetchFoods = useMemo(
+    () =>
+      debounce((value) => {
+        fetchFoods(value);
+      }, 500), // Wait 500ms after user stops typing
+    []
+  );
+
+  useEffect(() => {
+    debouncedFetchFoods(searchTerm);
+    // Cleanup the debounce function
+    return () => {
+      debouncedFetchFoods.cancel();
+    };
+  }, [searchTerm, debouncedFetchFoods]);
 
   return (
     <div className="container mx-auto p-5 mt-[110px] md:mt-2">
@@ -28,7 +52,7 @@ const AllFoods = () => {
         <input
           type="text"
           value={searchTerm}
-          onChange={handleSearch}
+          onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search foods by name..."
           className="input input-bordered w-full max-w-md"
         />
@@ -36,8 +60,10 @@ const AllFoods = () => {
 
       {/* Food Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredFoods.length > 0 ? (
-          filteredFoods.map((food) => (
+        {loading ? (
+          <p className="text-center">Loading...</p>
+        ) : foods.length > 0 ? (
+          foods.map((food) => (
             <div
               key={food._id}
               className="card bg-base-100 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl rounded-lg overflow-hidden"
