@@ -54,23 +54,9 @@ This project is a full-stack Restaurant Management website aimed at enhancing th
 - **MongoDB**: Database.
 - **JWT**: Authentication.
 - **Moment.js**: Formatting dates and times.
+- **Lottie-React:** Rendering Lottie animations,etc.
 
-## Deployment
-- **Frontend**: Hosted on [Netlify/Surge](#).
-- **Backend**: Hosted on [Render/Heroku](#).
-- **Database**: MongoDB Atlas.
 
-## Commits
-- **Frontend**: At least 15 meaningful commits with descriptive messages.
-- **Backend**: At least 8 meaningful commits with descriptive messages.
 
-## Installation Guide
-### Prerequisites
-- Node.js
-- MongoDB
-- Firebase project
 
-### Steps to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone <repository-url>
+

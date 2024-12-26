@@ -6,6 +6,8 @@ import { IoEyeSharp } from 'react-icons/io5';
 import { updateProfile } from "firebase/auth";  // Import updateProfile from Firebase
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
+import Lottie from 'lottie-react';
+import animationData from '../../src/assets/lotti/Animation - 1735212867927.json'
 
 const Register = () => {
   const { handelRegistWemail, setUser, handelLoginWithGoogle } = useContext(AuthContext);
@@ -81,14 +83,15 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div className=''>
         {/* <ToastContainer /> */}
-      <div className="hero bg-base-200 min-h-screen ">
-        <div className="hero-content flex-col">
-          <div className="text-center">
-            <h1 className="text-5xl font-bold">Register now!</h1>
+      <div className="hero bg-base-200 min-h-screen  ">
+        <div className="hero-content flex-col gap-32 lg:flex-row-reverse ">
+          <div className="text-center mt-[180px] md:mt-6 lg:text-left">
+           <Lottie animationData={animationData}></Lottie>
           </div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <h1 className="text-5xl font-bold text-center">Register now!</h1>
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">

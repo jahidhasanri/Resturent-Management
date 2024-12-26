@@ -44,7 +44,7 @@ const AllFoods = () => {
   }, [searchTerm, debouncedFetchFoods]);
 
   return (
-    <div className="container mx-auto p-5 mt-[110px] md:mt-2">
+    <div className="container mx-auto p-5 mt-[250px] md:mt-[150px] lg:mt-[10px]">
       {/* Page Title */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10 mb-6">
         <h1 className="text-4xl font-bold">All Foods</h1>

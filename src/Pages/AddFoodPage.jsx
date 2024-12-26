@@ -33,7 +33,7 @@ const AddFoodPage = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex mt-[110px] md:mt-[30px] lg:mt-[10px] flex-col min-h-screen">
       <div className="w-11/12 mx-auto flex-grow text-black p-4">
         <h2 className="text-3xl font-bold text-center mb-3 text-black">Add Equipment</h2>
         <div className="card bg-base-100 w-full shadow-2xl">

@@ -40,16 +40,19 @@ const TopFoodSec = () => {
     };
 
     return (
-        <div className=" md:w-10/12 mx-auto p-6">
+        <div className="md:w-10/12 mx-auto p-6">
             <h2 className="text-3xl font-bold text-center mb-6">Top Selling Foods</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {foods.map(food => (
-                    <div key={food._id} className="card bg-base-100 shadow-lg rounded-lg">
+                    <div
+                        key={food._id}
+                        className="card bg-base-100 shadow-lg rounded-lg hover:shadow-xl hover:bg-gray-100 transition duration-200"
+                    >
                         <figure>
                             <img
                                 src={food.img}
                                 alt={food.food}
-                                className="h-[300px] w-11/12  rounded-t-lg"
+                                className="h-[300px] w-11/12 rounded-t-lg "
                             />
                         </figure>
                         <div className="card-body">
@@ -65,7 +68,7 @@ const TopFoodSec = () => {
                             </p>
                             <button
                                 onClick={() => handleDetails(food._id)}
-                                className="btn btn-primary mt-4"
+                                className="btn btn-primary mt-4 hover:bg-blue-600"
                             >
                                 Details
                             </button>
@@ -74,7 +77,10 @@ const TopFoodSec = () => {
                 ))}
             </div>
             <div className="text-center mt-6">
-                <button onClick={handleSeeAll} className="btn w-[100px] btn-secondary">
+                <button
+                    onClick={handleSeeAll}
+                    className="btn w-[100px] btn-secondary hover:bg-gray-500"
+                >
                     See All
                 </button>
             </div>
