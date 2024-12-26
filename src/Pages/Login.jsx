@@ -60,7 +60,7 @@ const Login = () => {
     <div>
       {/* <ToastContainer /> */}
        
-      <div className="hero bg-base-200 min-h-screen ">
+      <div className="hero bg-base-200 min-h-screen mt-[100px] md:mt-[5px]">
       
         <div className="hero-content flex-col  lg:flex-row-reverse">
           <div className="text-center lg:text-left">

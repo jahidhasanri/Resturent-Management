@@ -62,8 +62,8 @@ const FoodPurchase = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-10 mb-12 bg-white">
-            <h1 className="text-2xl font-bold mb-4">Complete Your Purchase</h1>
+        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-[100px] mb-12 bg-white">
+            <h1 className="text-xl md:text-2xl font-bold mb-4">Complete Your Purchase</h1>
             {food.quantity == 0 ? 
             (<p className="text-red-500 font-semibold mb-4">This item is not available for purchase.</p>)
         :
