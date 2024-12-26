@@ -13,6 +13,7 @@ import MyFood from "../Pages/MyFood";
 import Update from "../Pages/Update";
 import MyOrders from "../Pages/MyOrders";
 import Error from "../Pages/Error";
+import axios from "axios";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         {
             path:'/allfoods',
             element:<AllFoods></AllFoods>,
-            // loader:()=> fetch('https://assignment-11-solution-server.vercel.app///jobs')
+            
         },
         {
             path:'/addfood',
@@ -40,15 +41,15 @@ const router = createBrowserRouter([
         {
             path:'/singlefood/:id',
             element:<SingleFood></SingleFood>,
-            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
+            loader: ({ params }) => axios.get(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`).then(res => res.data)
         },
         {
             path:'/foodpurchase/:id',
             element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
+            loader: ({ params }) => axios.get(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`).then(res => res.data)
         },
         {
-            path:'myorders',
+            path:'/myorders',
             element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>
         },
         {
@@ -66,7 +67,7 @@ const router = createBrowserRouter([
         {
             path:'/update/:id',
             element:<PrivateRoute><Update></Update></PrivateRoute>,
-            loader:({params})=> fetch(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`)
+            loader: ({ params }) => axios.get(`https://assignment-11-solution-server.vercel.app/jobs/${params.id}`).then(res => res.data)
         },
       ]
     },

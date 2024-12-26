@@ -49,7 +49,7 @@ const AuthProvider = ({children}) => {
                     .catch(err => console.error('Error generating token:', err));
             }
             else{
-                axios.post('https://assignment-11-solution-server.vercel.app/logout',{
+                axios.post('https://assignment-11-solution-server.vercel.app/logout',{},{
                     withCredentials: true
                 })
                 .then(res => {

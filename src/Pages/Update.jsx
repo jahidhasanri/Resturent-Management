@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import UseAxiosSecure from '../Hoks/UseAxiosSecure';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Update = () => {
   const data = useLoaderData();
   const navigate = useNavigate();
+  const useaxious= UseAxiosSecure();
+  const {user}=useContext(AuthContext)
+  console.log(user.email);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,10 +25,11 @@ const Update = () => {
       quantity: parseInt(form.quantity.value, 10),
       foodOrigin: form.foodOrigin.value.trim(),
       description: form.description.value.trim(),
+      userEmail: user.email,
     };
 
     try {
-      const response = await axios.put(`https://assignment-11-solution-server.vercel.app/jobs/${data._id}`, updatedFood);
+      const response = await useaxious.put(`/jobs/${data._id}`, updatedFood);
 
       if (response.data.modifiedCount > 0) {
         toast.success('Food item updated successfully');

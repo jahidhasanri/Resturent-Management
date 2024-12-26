@@ -3,10 +3,12 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import UseAxiosSecure from '../Hoks/UseAxiosSecure';
 
 const AddFoodPage = () => {
   const { user } = useContext(AuthContext);
   const navigate=useNavigate();
+  const axiosSecure =UseAxiosSecure();
 
   const handleAddEquipment = async (e) => {
     e.preventDefault();
@@ -15,7 +17,7 @@ const AddFoodPage = () => {
     const allInfo = Object.fromEntries(info.entries());
 
     try {
-      const { data } = await axios.post('https://assignment-11-solution-server.vercel.app/jobs', allInfo);
+      const { data } = await axiosSecure.post('/jobs', allInfo);
       
       if (data) {
         toast.success('Food item added successfully'); // Toast on success

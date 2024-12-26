@@ -3,16 +3,18 @@ import axios from 'axios';
 import moment from 'moment';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import UseAxiosSecure from '../Hoks/UseAxiosSecure';
+
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const user=useContext(AuthContext)
   const userEmail =user?.user?.email;
-
+  const useaxious=UseAxiosSecure()
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get(`https://assignment-11-solution-server.vercel.app/purchase?email=${userEmail}`);
+        const response = await useaxious.get(`/purchase?email=${userEmail}`);
         setOrders(response.data);
       } catch (error) {
         // console.error(error);
@@ -21,7 +23,7 @@ const MyOrders = () => {
     };
     fetchOrders();
   }, [userEmail]);
-
+  console.log(orders);
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(`https://assignment-11-solution-server.vercel.app/purchase/${id}`,{
@@ -51,10 +53,14 @@ const MyOrders = () => {
             <div className="card-body">
               <h2 className="card-title">{order.foodName}</h2>
               <p>Price: ${order.price}</p>
-              <p>Owner Name: {order.buyerName}</p>
-              <p>Owner Email: {order.buyerEmail}</p>
+              <p>Owner Name: {order.owner_Email
+              }</p>
+              <p>Owner Email: {order.owner_Name}</p>
               <p>
-                Ordered on: <span className="font-semibold">{moment(order.date).format('MMMM Do YYYY, h:mm:ss a')}</span>
+                 Ordered on:{" "}
+                <span className="font-semibold">
+                 {moment(order.buyingDate).format("MMMM Do YYYY, h:mm:ss A")}
+                </span>
               </p>
               <button
                 onClick={() => handleDelete(order._id)}
