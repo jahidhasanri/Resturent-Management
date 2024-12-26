@@ -4,7 +4,7 @@
 This project is a full-stack Restaurant Management website aimed at enhancing the restaurant's online presence, improving customer interaction, and streamlining internal management processes. It is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) to ensure a modern, robust, and user-friendly experience.
 
 ## Live URL
-[Live Site Link](#)
+[https://assignment-11-soution.web.app/](#)
 
 ## Key Features
 ### Frontend Features
@@ -47,6 +47,8 @@ This project is a full-stack Restaurant Management website aimed at enhancing th
 - **Tailwind CSS**: Styling.
 - **Framer Motion**: Animations.
 - **Yet Another React Lightbox**: Gallery lightbox functionality.
+- **Lottie-React:** Rendering Lottie animations,etc.
+- **Moment.js**: Formatting dates and times.
 
 ### Backend
 - **Node.js**: Backend runtime.
@@ -54,7 +56,7 @@ This project is a full-stack Restaurant Management website aimed at enhancing th
 - **MongoDB**: Database.
 - **JWT**: Authentication.
 - **Moment.js**: Formatting dates and times.
-- **Lottie-React:** Rendering Lottie animations,etc.
+
 
 
 
