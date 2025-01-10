@@ -35,7 +35,9 @@ const AddFoodPage = () => {
   return (
     <div className="flex mt-[110px] md:mt-[30px] lg:mt-[10px] flex-col min-h-screen">
       <div className="w-11/12 mx-auto flex-grow text-black p-4">
-        <h2 className="text-3xl font-bold text-center mb-3 text-black">Add Equipment</h2>
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10 mb-6">
+        <h1 className="text-4xl font-bold">Add Foods</h1>
+      </div>
         <div className="card bg-base-100 w-full shadow-2xl">
           <form onSubmit={handleAddEquipment} className="card-body">
             <div className="form-control">

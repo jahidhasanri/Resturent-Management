@@ -62,8 +62,8 @@ const FoodPurchase = () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-[100px] mb-12 bg-white">
-            <h1 className="text-xl md:text-2xl font-bold mb-4">Complete Your Purchase</h1>
+        <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-[90px] mb-16 bg-white">
+            <h1 className="text-xl md:text-2xl font-bold mb-4 text-black">Complete Your Purchase</h1>
             {food.quantity == 0 ? 
             (<p className="text-red-500 font-semibold mb-4">This item is not available for purchase.</p>)
         :
@@ -76,8 +76,8 @@ const FoodPurchase = () => {
             ''
         }
             <form onSubmit={handlePurchase}>
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1">Food Name</label>
+                <div className="mb-4 text-black">
+                    <label className="block text-sm font-medium mb-1 text-black">Food Name</label>
                     <input
                         type="text"
                         name="foodName"
@@ -86,8 +86,8 @@ const FoodPurchase = () => {
                         className="input input-bordered w-full"
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1">Price</label>
+                <div className="mb-4 text-black">
+                    <label className="block text-sm font-medium mb-1 text-black">Price</label>
                     <input
                         type="number"
                         name="price"
@@ -96,8 +96,8 @@ const FoodPurchase = () => {
                         className="input input-bordered w-full"
                     />
                 </div>
-                <div className="mb-4">
-                    <label className="block text-sm font-medium mb-1">Quantity</label>
+                <div className="mb-4 text-black">
+                    <label className="block text-sm font-medium mb-1 text-black">Quantity</label>
                     <div className="flex items-center">
                         <button
                             type="button"
@@ -112,7 +112,7 @@ const FoodPurchase = () => {
                             name="quantity"
                             value={purchaseDetails.quantity}
                             onChange={handleInputChange}
-                            className="input input-bordered w-16 text-center"
+                            className="input input-bordered w-16 text-center text-black"
                             min={1}
                             max={food.quantity}
                         />
@@ -129,7 +129,7 @@ const FoodPurchase = () => {
                         <p className="text-red-500 text-sm">You can't purchase more than the available quantity.</p>
                     )}
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 text-black">
                     <label className="block text-sm font-medium mb-1">Buyer Name</label>
                     <input
                         type="text"
@@ -139,7 +139,7 @@ const FoodPurchase = () => {
                         className="input input-bordered w-full"
                     />
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 text-black">
                     <label className="block text-sm font-medium mb-1">Buyer Email</label>
                     <input
                         type="email"

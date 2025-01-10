@@ -110,15 +110,15 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <Link to="/myfood" className="justify-between">
+                  <Link to="/myfood" className="justify-between text-black">
                     My Foods
                   </Link>
                 </li>
                 <li>
-                  <Link to="/addfood">Add Food</Link>
+                  <Link to="/addfood" className="text-black">Add Food</Link>
                 </li>
                 <li>
-                  <Link to="/myorders">My Orders</Link>
+                  <Link to="/myorders" className="text-black">My Orders</Link>
                 </li>
               </ul>
             </div>

@@ -94,7 +94,7 @@ const AllFoods = () => {
                   <span className="font-semibold text-gray-800">Quantity:</span>{" "}
                   {food.quantity}
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 mb-1">
                   <span className="font-semibold text-gray-800">Origin:</span>{" "}
                   {food.foodOrigin}
                 </p>

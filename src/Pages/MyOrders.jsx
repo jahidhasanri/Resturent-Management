@@ -43,7 +43,7 @@ const MyOrders = () => {
 
   return (
     <div className="mt-[110px] md:mt-2 p-6 container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">My Orders</h1>
+      <h1 className="text-2xl font-bold mb-4  ">My Orders</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {orders.map((order) => (
           <div key={order._id} className="card bg-base-100 shadow-lg">
@@ -51,14 +51,14 @@ const MyOrders = () => {
               <img src={order.food_img} alt={order.food_Name} className="w-full h-[300px] " />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{order.foodName}</h2>
-              <p>Price: ${order.price}</p>
-              <p>Owner Name: {order.owner_Email
+              <h2 className="card-title  text-black">{order.foodName}</h2>
+              <p className=' text-black'>Price: ${order.price}</p>
+              <p className=' text-black'>Owner Name: {order.owner_Email
               }</p>
-              <p>Owner Email: {order.owner_Name}</p>
-              <p>
+              <p className=' text-black'>Owner Email: {order.owner_Name}</p>
+              <p className='text-black'>
                  Ordered on:{" "}
-                <span className="font-semibold">
+                <span className="font-semibold  text-black">
                  {moment(order.buyingDate).format("MMMM Do YYYY, h:mm:ss A")}
                 </span>
               </p>

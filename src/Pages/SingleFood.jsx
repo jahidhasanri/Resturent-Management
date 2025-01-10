@@ -12,29 +12,29 @@ const SingleFood = () => {
     };
 
     return (
-        <div className="mt-[100px] lg:mt-[50px] lg:w-4/12 mx-auto p-6 ">
+        <div className="mt-[100px] mb-10 lg:mt-[50px] lg:w-4/12 mx-auto p-6 ">
             <div className="card bg-base-100 shadow-lg rounded-lg">
                 <figure>
-                    <img src={food.img} alt={food.food} className="h-[400px] w-[400px]  rounded-t-lg" />
+                    <img src={food.img} alt={food.food} className="h-[400px] w-full p-6 rounded-2xl" />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title text-2xl font-bold">{food.food}</h2>
-                    <p>
-                        <span className="font-semibold">Category:</span> {food.categoryName}
+                    <h2 className="card-title text-2xl font-bold text-black">{food.food}</h2>
+                    <p className='text-black'>
+                        <span className="font-semibold text-black">Category:</span> {food.categoryName}
                     </p>
-                    <p>
-                        <span className="font-semibold">Price:</span> ${food.price}
+                    <p className='text-black'>
+                        <span className="font-semibold text-black">Price:</span> ${food.price}
                     </p>
-                    <p>
+                    <p className='text-black'>
                         <span className="font-semibold">Quantity:</span> {food.quantity}
                     </p>
-                    <p>
+                    <p className='text-black'>
                         <span className="font-semibold">Origin:</span> {food.foodOrigin}
                     </p>
-                    <p>
+                    <p className='text-black'>
                         <span className="font-semibold">Description:</span> {food.description}
                     </p>
-                    <p>
+                    <p className='text-black'>
                         <span className="font-semibold">Purchase Count:</span> {food.PurchaseCount ? food.PurchaseCount : '0' } {/* Show 0 if purchaseCount is 0, otherwise show the actual value */}
                     </p>
                     <button 

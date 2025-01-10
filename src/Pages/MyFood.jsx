@@ -28,7 +28,7 @@ const MyFood = () => {
 
     return (
         <div className="p-6 mt-[100px] md:mt-[40px] lg:mt-[10px]">
-            <h1 className="text-2xl font-bold mb-4 text-center">My Foods</h1>
+            <h1 className="text-2xl font-bold mb-4 text-center  ">My Foods</h1>
             {foods.length > 0 ? (
                 <ul className="space-y-4">
                     {foods.map((food) => (
@@ -36,14 +36,14 @@ const MyFood = () => {
                             key={food._id}
                             className="p-4 border rounded-lg shadow-md bg-white"
                         >
-                            <div className='md:flex justify-around items-center'>
+                            <div className='md:flex justify-around items-center text-black'>
                                 <div>
                                     <img src={food.img} alt={food.food} className="w-full rounded-2xl md:w-[400px] h-[250px]  mb-4" />
                                 </div>
                                 <div>
-                            <h2 className="text-lg font-semibold">{food.food}</h2>
-                            <p>Price: ${food.price}</p>
-                            <p>Quantity: {food.quantity}</p>
+                            <h2 className="text-lg font-semibold  text-black">{food.food}</h2>
+                            <p className=' text-black'>Price: ${food.price}</p>
+                            <p className=' text-black'>Quantity: {food.quantity}</p>
                             <Link to={`/update/${food._id}`}
                                 className="mt-2 btn text-blue-500 hover:underline"
                             >
