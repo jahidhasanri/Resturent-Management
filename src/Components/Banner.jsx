@@ -4,7 +4,9 @@ import { easeOut, motion } from "motion/react"
 
 const Banner = () => {
   return (
-    <div className="hero mt-[110px] md:mt-[13px] min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url(https://i.ibb.co.com/3M7ppvx/resturant-img.jpg)' }}>
+    <div className="hero mt-[110px] md:mt-[13px]  bg-cover bg-center " style={{ backgroundImage: 'url(https://i.ibb.co.com/3M7ppvx/resturant-img.jpg)',
+      height: '600px',
+     }}>
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="">
@@ -13,7 +15,7 @@ const Banner = () => {
           transition={{duration: 2, delay: 1, case: easeOut, repeat: Infinity}}
            className="mb-5 text-5xl font-bold">Welcome to Food Haven!
            </motion.h1>
-          <p className="mb-5">
+          <p className="mb-5  primary">
             Discover a wide variety of delicious meals. Freshly prepared and delivered to your doorstep. Explore now and satisfy your cravings!
           </p>
           <Link to="/allfoods">

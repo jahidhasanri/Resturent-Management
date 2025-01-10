@@ -36,9 +36,9 @@ const OurStrength = () => {
   ];
 
   return (
-    <div className="bg-white py-16 px-6 w-8/12 mx-auto">
+    <div className="bg-white py-16 px-6 container mx-auto">
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-orange-500 mb-2">Our Strength</h2>
+        <h2 className="text-4xl font-bold text-orange-500 mb-2 ">Our Strength</h2>
         <p className="text-gray-600">Discover what makes us unique and valuable!</p>
       </div>
 
@@ -64,7 +64,7 @@ const OurStrength = () => {
               style={{ height: "320px", width: "100%" }}
             >
               <div className="text-5xl text-orange-500 mb-4">{strength.icon}</div>
-              <h3 className="text-2xl font-semibold mb-2">{strength.title}</h3>
+              <h3 className="text-2xl font-semibold mb-2 text-black">{strength.title}</h3>
               <p className="text-gray-500 flex-grow">{strength.description}</p>
             </div>
           </SwiperSlide>

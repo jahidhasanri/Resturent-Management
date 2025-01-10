@@ -1,10 +1,12 @@
+import { div } from 'motion/react-client';
 import React from 'react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="bg-base-300 py-8 px-12">
+    <div className='w-full bg-base-300'>
+      <div className="container mx-auto  py-8 px-12">
       <div className="mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
         {/* Company Info */}
         <div>
@@ -55,10 +57,11 @@ const Footer = () => {
 
       {/* Job Call-to-Action */}
       <div className="mt-8 text-center">
-        <p className="text-lg text-gray-700 mb-4">
+        <p className="text-lg text-gray-700 mb-3">
           Join our team! We are looking for a MERN Stack Developer to help us build the future of Restaurant Management.
         </p>
       </div>
+    </div>
     </div>
   );
 };

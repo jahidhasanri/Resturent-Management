@@ -57,13 +57,13 @@ const Navbar = () => {
 
         {/* Navbar Links (Desktop and Tablet View) */}
         <div className="hidden lg:flex">
-          <NavLink className="text-xl font-semibold mr-6" to="/">
+          <NavLink className="text-xl font-semibold mr-6 text-black" to="/">
             Home
           </NavLink>
-          <NavLink className="text-xl font-semibold mr-6" to="/allfoods">
+          <NavLink className="text-xl font-semibold mr-6 text-black" to="/allfoods">
             All Foods
           </NavLink>
-          <NavLink className="text-xl font-semibold mr-6" to="/gallery">
+          <NavLink className="text-xl font-semibold mr-6 text-black" to="/gallery">
             Gallery
           </NavLink>
         </div>

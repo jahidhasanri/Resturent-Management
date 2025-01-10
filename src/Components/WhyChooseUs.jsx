@@ -39,7 +39,8 @@ const WhyChooseUs = () => {
     ];
   
     return (
-      <div className="bg-gray-50 py-16 px-4">
+      <div className="w-full bg-gray-50">
+        <div className="container mx-auto py-16 px-4">
         <div className="text-center mb-10">
           <h2 className="text-4xl font-bold text-gray-800 mb-2">
             WHY PEOPLE CHOOSE US
@@ -70,6 +71,7 @@ const WhyChooseUs = () => {
             </div>
           ))}
         </div>
+      </div>
       </div>
     );
   };

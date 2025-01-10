@@ -22,7 +22,7 @@ const TopFoodSec = () => {
                     .sort((a, b) => (b.PurchaseCount || 0) - (a.PurchaseCount || 0));
 
                 // Ensure at least 6 items are shown
-                const topSixFoods = sortedFoods.slice(0, 6);
+                const topSixFoods = sortedFoods.slice(0, 8);
 
                 setFoods(topSixFoods);
             })
@@ -40,9 +40,10 @@ const TopFoodSec = () => {
     };
 
     return (
-        <div className="md:w-10/12 mx-auto p-6">
-            <h2 className="text-3xl font-bold text-center mb-6">Top Selling Foods</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+       <div className='bg-slate-100'>
+         <div className=" md:container mx-auto p-6">
+            <h2 className="text-3xl font-bold text-center mb-10 mt-6 text-black">Top Selling Foods</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {foods.map(food => (
                     <div
                         key={food._id}
@@ -52,18 +53,18 @@ const TopFoodSec = () => {
                             <img
                                 src={food.img}
                                 alt={food.food}
-                                className="h-[300px] w-11/12 rounded-t-lg "
+                                className="h-[300px] w-full rounded-3xl p-3"
                             />
                         </figure>
                         <div className="card-body">
-                            <h3 className="text-xl font-semibold">{food.food}</h3>
-                            <p>
-                                <span className="font-semibold">Category:</span> {food.categoryName}
+                            <h3 className="text-xl font-semibold text-black">{food.food}</h3>
+                            <p className='text-black'>
+                                <span className="font-semibold text-black">Category:</span> {food.categoryName}
                             </p>
-                            <p>
+                            <p className='text-black'>
                                 <span className="font-semibold">Price:</span> ${food.price}
                             </p>
-                            <p>
+                            <p className='text-black'>
                                 <span className="font-semibold">Purchase Count:</span> {food.PurchaseCount || 0}
                             </p>
                             <button
@@ -79,12 +80,13 @@ const TopFoodSec = () => {
             <div className="text-center mt-6">
                 <button
                     onClick={handleSeeAll}
-                    className="btn w-[100px] btn-secondary hover:bg-gray-500"
+                    className="btn w-[100px] btn-primary mt-4 hover:bg-gray-500"
                 >
                     See All
                 </button>
             </div>
         </div>
+       </div>
     );
 };
 
