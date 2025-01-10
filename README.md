@@ -6,7 +6,7 @@ This project is a full-stack Restaurant Management website aimed at enhancing th
 ## Live URL
 [Restaurant Management Live Demo](https://assignment-11-soution.web.app/)
 
-![Screenshot](https://github.com/user-attachments/assets/12b03497-ff8a-4115-b4c6-e9dcf70eb947)
+![Screenshot 2025-01-08 161524](https://github.com/user-attachments/assets/108be53e-04fb-43e8-b095-38c133e713db)
 
 ## Key Features
 
