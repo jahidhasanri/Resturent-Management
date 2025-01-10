@@ -44,7 +44,7 @@ const AllFoods = () => {
   }, [searchTerm, debouncedFetchFoods]);
 
   return (
-    <div className="container mx-auto p-5 mt-[110px] md:mt-[150px] lg:mt-[10px]">
+    <div className="container mx-auto p-6 mb-6 mt-[110px] md:mt-[150px] lg:mt-[10px]">
       {/* Page Title */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10 mb-6">
         <h1 className="text-4xl font-bold">All Foods</h1>
@@ -62,20 +62,20 @@ const AllFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {loading ? (
           <p className="text-center">Loading...</p>
         ) : foods.length > 0 ? (
           foods.map((food) => (
             <div
               key={food._id}
-              className="card bg-base-100 shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl rounded-lg overflow-hidden"
+              className="card bg-base-100 shadow-lg transform transition duration-300 hover:scale-95 hover:shadow-2xl rounded-lg overflow-hidden"
             >
               <figure className="overflow-hidden">
                 <img
                   src={food.img}
                   alt={food.food}
-                  className="h-[300px] w-11/12 p-3 rounded-3xl transition-transform duration-300 hover:scale-110"
+                  className="h-[300px] w-full p-4  rounded-3xl "
                 />
               </figure>
               <div className="card-body">
@@ -98,7 +98,7 @@ const AllFoods = () => {
                   <span className="font-semibold text-gray-800">Origin:</span>{" "}
                   {food.foodOrigin}
                 </p>
-                <div className="card-actions justify-end">
+                <div className="card-actions justify-start">
                   <Link to={`/singlefood/${food._id}`}>
                     <button className="btn btn-primary transition-transform duration-200 hover:scale-105">
                       Details
