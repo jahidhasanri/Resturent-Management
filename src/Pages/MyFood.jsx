@@ -26,38 +26,40 @@ const MyFood = () => {
         }
     }, [users]); // Dependency array with users to trigger the effect when user changes
 
-
     return (
         <div className="p-6 mt-[100px] md:mt-[40px] lg:mt-[10px]">
             <Helmet>
-                <title>Resto | myfood</title>
+                <title>Resto | My Foods</title>
             </Helmet>
-            <h1 className="text-2xl font-bold mb-4 text-center  ">My Foods</h1>
+            <h1 className="text-2xl font-bold mb-4 text-center">My Foods</h1>
             {foods.length > 0 ? (
-                <ul className="space-y-4">
-                    {foods.map((food) => (
-                        <li
-                            key={food._id}
-                            className="p-4 border rounded-lg shadow-md bg-white"
-                        >
-                            <div className='md:flex justify-around items-center text-black'>
-                                <div>
-                                    <img src={food.img} alt={food.food} className="w-full rounded-2xl md:w-[400px] h-[250px]  mb-4" />
-                                </div>
-                                <div>
-                            <h2 className="text-lg font-semibold  text-black">{food.food}</h2>
-                            <p className=' text-black'>Price: ${food.price}</p>
-                            <p className=' text-black'>Quantity: {food.quantity}</p>
-                            <Link to={`/update/${food._id}`}
-                                className="mt-2 btn text-blue-500 hover:underline"
-                            >
-                                Update
-                            </Link>
-                                </div>
-                            </div>
-                        </li>
-                    ))}
-                </ul>
+                <table className="min-w-full bg-white border border-gray-300 rounded-lg shadow-md">
+                    <thead>
+                        <tr className="bg-gray-100">
+                            <th className="p-4 text-left text-sm font-medium text-gray-700">Food</th>
+                            <th className="p-4 text-left text-sm font-medium text-gray-700">Price</th>
+                            <th className="p-4 text-left text-sm font-medium text-gray-700">Quantity</th>
+                            <th className="p-4 text-left text-sm font-medium text-gray-700">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {foods.map((food) => (
+                            <tr key={food._id} className="border-b">
+                                <td className="p-4 text-sm text-gray-700">
+                                    <img src={food.img} alt={food.food} className="w-[100px] h-[80px] rounded-2xl" />
+                                    <span className="ml-2">{food.food}</span>
+                                </td>
+                                <td className="p-4 text-sm text-gray-700">${food.price}</td>
+                                <td className="p-4 text-sm text-gray-700">{food.quantity}</td>
+                                <td className="p-4 text-sm text-gray-700">
+                                    <Link to={`/update/${food._id}`} className="text-blue-500 hover:underline">
+                                        Update
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             ) : (
                 <p>No foods found for {users}.</p>
             )}
