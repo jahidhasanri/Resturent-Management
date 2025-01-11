@@ -3,6 +3,7 @@ import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { use } from "react";
+import { Helmet } from "react-helmet";
 
 const Gallery = () => {
   const [open, setOpen] = useState(false);
@@ -30,6 +31,9 @@ const Gallery = () => {
 
   return (
     <div className="bg-gray-100">
+      <Helmet>
+        <title>Restu | gallery</title>
+      </Helmet>
     <div className=" container mx-auto  mt-[270px] md:mt-[170px] lg:mt-[30px]">
       {/* Page Title */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10">

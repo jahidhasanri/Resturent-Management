@@ -5,6 +5,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import animationLogin from '../../src/assets/lotti/Animation - 1735216092780.json'
 import Lottie from 'lottie-react';
+import { Helmet } from 'react-helmet';
 
 
 const Login = () => {
@@ -59,7 +60,9 @@ const Login = () => {
   return (
     <div>
       {/* <ToastContainer /> */}
-       
+       <Helmet>
+        <title>Resto | login</title>
+       </Helmet>
       <div className="hero bg-base-200 min-h-screen mt-[100px] md:mt-[5px]">
       
         <div className="hero-content flex-col  lg:flex-row-reverse">

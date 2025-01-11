@@ -2,18 +2,20 @@ import { useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import debounce from "lodash.debounce";
+import { Helmet } from "react-helmet";
 
 const AllFoods = () => {
   const [foods, setFoods] = useState([]); // State for food data
   const [searchTerm, setSearchTerm] = useState(""); // State for search term
   const [loading, setLoading] = useState(false);
+  const [sortOrder, setSortOrder] = useState("asc"); // Default sort order
 
-  // Fetch all foods with search
-  const fetchFoods = async (searchValue) => {
+  // Fetch all foods with search and sorting
+  const fetchFoods = async (searchValue, sort) => {
     setLoading(true);
     try {
       const { data } = await axios.get(
-        `https://assignment-11-solution-server.vercel.app/jobs?search=${searchValue}`,
+        `https://assignment-11-solution-server.vercel.app/jobs?search=${searchValue}&sort=${sort}`,
         {
           withCredentials: true
         }
@@ -30,9 +32,9 @@ const AllFoods = () => {
   const debouncedFetchFoods = useMemo(
     () =>
       debounce((value) => {
-        fetchFoods(value);
+        fetchFoods(value, sortOrder);
       }, 500), // Wait 500ms after user stops typing
-    []
+    [sortOrder]
   );
 
   useEffect(() => {
@@ -43,8 +45,18 @@ const AllFoods = () => {
     };
   }, [searchTerm, debouncedFetchFoods]);
 
+  // Handle sort change
+  const handleSortChange = (event) => {
+    const newSortOrder = event.target.value;
+    setSortOrder(newSortOrder);
+    fetchFoods(searchTerm, newSortOrder); // Refetch foods with new sort order
+  };
+
   return (
     <div className="container mx-auto p-6 mb-6 mt-[110px] md:mt-[150px] lg:mt-[10px]">
+      <Helmet>
+        <title>Restu | All Foods</title>
+      </Helmet>
       {/* Page Title */}
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10 mb-6">
         <h1 className="text-4xl font-bold">All Foods</h1>
@@ -61,6 +73,18 @@ const AllFoods = () => {
         />
       </div>
 
+      {/* Sort Dropdown */}
+      <div className="mb-6 flex justify-center">
+        <select
+          value={sortOrder}
+          onChange={handleSortChange}
+          className="select select-bordered w-full max-w-md"
+        >
+          <option value="asc">Price: Low to High</option>
+          <option value="desc">Price: High to Low</option>
+        </select>
+      </div>
+
       {/* Food Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {loading ? (
@@ -75,7 +99,7 @@ const AllFoods = () => {
                 <img
                   src={food.img}
                   alt={food.food}
-                  className="h-[300px] w-full p-4  rounded-3xl "
+                  className="h-[300px] w-full p-4 rounded-3xl"
                 />
               </figure>
               <div className="card-body">

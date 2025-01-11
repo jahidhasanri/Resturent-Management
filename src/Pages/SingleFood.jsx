@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const SingleFood = () => {
@@ -13,6 +14,9 @@ const SingleFood = () => {
 
     return (
         <div className="mt-[100px] mb-10 lg:mt-[50px] lg:w-4/12 mx-auto p-6 ">
+            <Helmet>
+                <title>Restu | singlefood</title>
+            </Helmet>
             <div className="card bg-base-100 shadow-lg rounded-lg">
                 <figure>
                     <img src={food.img} alt={food.food} className="h-[400px] w-full p-6 rounded-2xl" />

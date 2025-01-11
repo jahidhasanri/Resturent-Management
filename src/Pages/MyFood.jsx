@@ -3,6 +3,7 @@ import axios from 'axios';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { Link, useNavigate } from 'react-router-dom';
 import UseAxiosSecure from '../Hoks/UseAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const MyFood = () => {
     const [foods, setFoods] = useState([]);
@@ -28,6 +29,9 @@ const MyFood = () => {
 
     return (
         <div className="p-6 mt-[100px] md:mt-[40px] lg:mt-[10px]">
+            <Helmet>
+                <title>Resto | myfood</title>
+            </Helmet>
             <h1 className="text-2xl font-bold mb-4 text-center  ">My Foods</h1>
             {foods.length > 0 ? (
                 <ul className="space-y-4">

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import UseAxiosSecure from '../Hoks/UseAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 const AddFoodPage = () => {
   const { user } = useContext(AuthContext);
@@ -34,6 +35,9 @@ const AddFoodPage = () => {
 
   return (
     <div className="flex mt-[110px] md:mt-[30px] lg:mt-[10px] flex-col min-h-screen">
+      <Helmet>
+        <title>Resto | addfood</title>
+      </Helmet>
       <div className="w-11/12 mx-auto flex-grow text-black p-4">
       <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-10 mb-6">
         <h1 className="text-4xl font-bold">Add Foods</h1>

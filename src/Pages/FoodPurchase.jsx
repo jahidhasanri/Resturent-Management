@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import UseAxiosSecure from "../Hoks/UseAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const FoodPurchase = () => {
     const food = useLoaderData();
@@ -63,6 +64,9 @@ const FoodPurchase = () => {
 
     return (
         <div className="max-w-lg mx-auto p-6 shadow-lg rounded-lg mt-[90px] mb-16 bg-white">
+            <Helmet>
+                <title>Restu | foodPurchase</title>
+            </Helmet>
             <h1 className="text-xl md:text-2xl font-bold mb-4 text-black">Complete Your Purchase</h1>
             {food.quantity == 0 ? 
             (<p className="text-red-500 font-semibold mb-4">This item is not available for purchase.</p>)

@@ -3,11 +3,13 @@ import { FcGoogle } from 'react-icons/fc';
 import { HiMiniEyeSlash } from 'react-icons/hi2';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoEyeSharp } from 'react-icons/io5';
-import { updateProfile } from "firebase/auth";  // Import updateProfile from Firebase
+import { updateProfile } from "firebase/auth";
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { toast, ToastContainer } from 'react-toastify';
 import Lottie from 'lottie-react';
-import animationData from '../../src/assets/lotti/Animation - 1735212867927.json'
+import animationData from '../../src/assets/lotti/Animation - 1735212867927.json';
+import { Helmet } from 'react-helmet';
+import axios from 'axios';
 
 const Register = () => {
   const { handelRegistWemail, setUser, handelLoginWithGoogle } = useContext(AuthContext);
@@ -18,11 +20,11 @@ const Register = () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
-    const photo = e.target.photo.value;
+    const photo = e.target.photo.files[0];
     const password = e.target.password.value;
 
     // Validate email and password
@@ -36,35 +38,36 @@ const Register = () => {
       return;
     }
 
-    // Register user with email and password
-    handelRegistWemail(email, password)
-      .then((result) => {
-       
-        updateProfile(result.user, {
-          displayName: name,
-          photoURL: photo
-        })
-        .then(() => {
-          
-          setUser({
-            ...result.user,
-            displayName: name,
-            photoURL: photo
-          });
-          toast.success('Registration successful!');
-          setTimeout(() => {
-            navigate('/');
-          }, 1000);
-        })
-        .catch((error) => {
-          console.error(error);
-          toast.error(`Failed to update profile: ${error.message}`);
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-        toast.error(`Registration failed: ${error.message}`);
+    try {
+      // Upload photo to IMGBB
+      const formData = new FormData();
+      formData.append('image', photo);
+      const { data } = await axios.post(`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`, formData);
+      const photoURL = data.data.display_url;
+
+      // Register user with email and password
+      const result = await handelRegistWemail(email, password);
+
+      // Update profile with name and photo URL
+      await updateProfile(result.user, {
+        displayName: name,
+        photoURL
       });
+
+      setUser({
+        ...result.user,
+        displayName: name,
+        photoURL
+      });
+
+      toast.success('Registration successful!');
+      setTimeout(() => {
+        navigate('/');
+      }, 1000);
+    } catch (error) {
+      console.error(error);
+      toast.error(`Error: ${error.message}`);
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -84,66 +87,68 @@ const Register = () => {
 
   return (
     <div className=''>
-        {/* <ToastContainer /> */}
-      <div className="hero bg-base-200 min-h-screen  ">
-        <div className="hero-content flex-col gap-32 lg:flex-row-reverse ">
+      <ToastContainer />
+      <Helmet>
+        <title>Resto | Register</title>
+      </Helmet>
+      <div className="hero bg-base-200 min-h-screen">
+        <div className="hero-content flex-col gap-32 lg:flex-row-reverse">
           <div className="text-center mt-[180px] md:mt-6 lg:text-left">
-           <Lottie animationData={animationData}></Lottie>
+            <Lottie animationData={animationData} />
           </div>
           <div className="card bg-base-100 w-full mt-3 max-w-sm shrink-0 shadow-2xl">
-          <h1 className="text-5xl font-bold text-center">Register now!</h1>
+            <h1 className="text-5xl font-bold text-center text-black">Register now!</h1>
             <form onSubmit={handleRegister} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Name</span>
+                  <span className="label-text text-black">Name</span>
                 </label>
                 <input
                   type="text"
                   name="name"
                   placeholder="Name"
-                  className="input input-bordered"
+                  className="input input-bordered text-black"
                   required
                 />
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-black">Email</span>
                 </label>
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className="input input-bordered text-black"
                   required
                 />
               </div>
-              <div className="form-control">
+              <div className="form-control text-black">
                 <label className="label">
-                  <span className="label-text">Photo</span>
+                  <span className="label-text text-black">Photo</span>
                 </label>
                 <input
-                  type="text"
+                  type="file"
                   name="photo"
-                  placeholder="Photo URL"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control relative">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-black">Password</span>
                 </label>
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   placeholder="Password"
-                  className="input input-bordered"
+                  className="input input-bordered text-black"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute top-[50px] right-3 text-xl"
+                  className="absolute top-[50px] right-3 text-xl text-black"
                 >
                   {showPassword ? <HiMiniEyeSlash /> : <IoEyeSharp />}
                 </button>
@@ -151,8 +156,8 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-primary">Register</button>
               </div>
-              <p>
-                Have an account? Please{' '}
+              <p className='text-black'>
+                Have an account?{' '}
                 <Link to="/login" className="text-red-500 border-b-2">
                   Login
                 </Link>

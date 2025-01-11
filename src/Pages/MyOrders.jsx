@@ -4,6 +4,7 @@ import moment from 'moment';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import UseAxiosSecure from '../Hoks/UseAxiosSecure';
+import { Helmet } from 'react-helmet';
 
 
 const MyOrders = () => {
@@ -43,6 +44,9 @@ const MyOrders = () => {
 
   return (
     <div className="mt-[110px] md:mt-2 p-6 container mx-auto">
+      <Helmet>
+        <title>Resto | myorders</title>
+      </Helmet>
       <h1 className="text-2xl font-bold mb-4  ">My Orders</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {orders.map((order) => (
