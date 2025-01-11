@@ -60,9 +60,14 @@ const Navbar = () => {
           <NavLink className="text-xl font-semibold mr-6 text-black" to="/">
             Home
           </NavLink>
+          {user? 
           <NavLink className="text-xl font-semibold mr-6 text-black" to="/allfoods">
             All Foods
           </NavLink>
+          :
+          ''
+        
+            }
           <NavLink className="text-xl font-semibold mr-6 text-black" to="/gallery">
             Gallery
           </NavLink>
