@@ -63,7 +63,7 @@ const AllFoods = () => {
       </div>
 
       {/* Search Input */}
-      <div className="mb-6 flex justify-center">
+      <div className="mb-6 flex justify-center text-gray-500">
         <input
           type="text"
           value={searchTerm}
@@ -74,13 +74,13 @@ const AllFoods = () => {
       </div>
 
       {/* Sort Dropdown */}
-      <div className="mb-6 flex justify-center">
+      <div className="mb-6 flex justify-center text-gray-400">
         <select
           value={sortOrder}
           onChange={handleSortChange}
           className="select select-bordered w-full max-w-md"
         >
-          <option value="asc">Price: Low to High</option>
+          <option value="asc" className="">Price: Low to High</option>
           <option value="desc">Price: High to Low</option>
         </select>
       </div>
