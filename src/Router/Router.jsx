@@ -14,6 +14,7 @@ import Update from "../Pages/Update";
 import MyOrders from "../Pages/MyOrders";
 import Error from "../Pages/Error";
 import axios from "axios";
+import AboutUs from "../Components/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         {
             path:'/addfood',
             element:<PrivateRoute><AddFoodPage></AddFoodPage></PrivateRoute>
+        },
+        {
+            path:'/aboutus',
+            element:<AboutUs></AboutUs>
         },
         {
             path:'/myfood',
